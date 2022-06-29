@@ -76,7 +76,7 @@ jobs:
           
       - name: Codesign (MacOS)
         if: ${{ matrix.name == 'MacOS' }}
-        run: codesign --force -s ${{ secrets.DEVELOPER_ID_APPLICATION}} -v ${{ env.APP_DIR }}/${{ matrix.binary}} --deep --strict --options=runtime --timestamp
+        run: codesign --force -s "${{ secrets.DEVELOPER_ID_APPLICATION}}" -v ${{ env.APP_DIR }}/${{ matrix.binary}} --deep --strict --options=runtime --timestamp
         
       - name: "Notarize (MacOS)"
         if: ${{ matrix.name == 'MacOS' }}
@@ -134,7 +134,7 @@ jobs:
         with:
           tag_name: ${{ env.TAG_NAME }}
           name: ${{ env.TAG_NAME }}
-          body_path: CHANGELIST.md/CHANGELIST.md
+          body_path: CHANGELIST.md
           draft: true
           files: |
             CHANGELIST.md/*

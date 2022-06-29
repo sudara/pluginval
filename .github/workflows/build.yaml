@@ -102,19 +102,15 @@ jobs:
           name: ${{ env.ZIP_FILE_NAME }}
           path: ${{ env.APP_DIR }}/${{ env.ZIP_FILE_NAME }}
       
-      - name: Upload CHANGELIST.md
-        uses: actions/upload-artifact@v3
-        if: ${{ matrix.name == 'Linux' }}
-        with:
-          name: CHANGELIST.md
-          path: ./CHANGELIST.md
-
   # Create release for tagged refs
   deploy:
     if: startsWith(github.ref, 'refs/tags/')
     needs: build
     runs-on: ubuntu-latest
     steps:
+      
+      - uses: actions/checkout@v3
+                
       - name: Get Artifacts
         uses: actions/download-artifact@v3
         with:
@@ -137,7 +133,6 @@ jobs:
           body_path: CHANGELIST.md
           draft: true
           files: |
-            CHANGELIST.md/*
-            pluginval_Linux.zip/*
-            pluginval_macOS.zip/*
-            pluginval_Windows.zip/*
+            pluginval_Linux.zip
+            pluginval_macOS.zip
+            pluginval_Windows.zip

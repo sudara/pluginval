@@ -76,7 +76,7 @@ jobs:
 
       - name: Build
         shell: bash
-        run: cmake --build ${{ env.BUILD_DIR }} --config ${{ env.BUILD_TYPE }} -DCMAKE_C_COMPILER_LAUNCHER=ccache -DCMAKE_CXX_COMPILER_LAUNCHER=ccache --parallel 4
+        run: cmake --build ${{ env.BUILD_DIR }} --config ${{ env.BUILD_TYPE }} --parallel 4
 
       - name: Run Pluginval Tests
         working-directory: ${{ env.APP_DIR }}

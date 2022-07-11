@@ -1,17 +1,9 @@
 name: Build
-
 on:
   workflow_dispatch:
   push:
     tags:
       - "v*"
-    branches:
-      - master
-      - develop
-  pull_request:
-    branches:
-      - master
-      - develop
 
 env:
   BINARY_NAME: pluginval

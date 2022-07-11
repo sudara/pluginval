@@ -2,8 +2,6 @@ name: Build
 on:
   workflow_dispatch:
   push:
-    tags:
-      - "v*"
 
 env:
   BINARY_NAME: pluginval

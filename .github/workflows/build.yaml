@@ -36,7 +36,7 @@ jobs:
       - name: Install dependencies (Linux)
         if: ${{ matrix.name == 'Linux' }}
         run: |
-          apt update && apt install software-properties-common
+          apt update && apt install -y software-properties-common
           add-apt-repository ppa:git-core/ppa -y
           add-apt-repository ppa:ubuntu-toolchain-r/test
           apt-get update

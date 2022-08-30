@@ -55,7 +55,7 @@ namespace
 
     juce::int64 getTimeoutMs()
     {
-        return getAppPreferences().getIntValue ("timeoutMs", 60000);
+        return getAppPreferences().getIntValue ("timeoutMs", 120000);
     }
 
     void setVerboseLogging (bool verbose)

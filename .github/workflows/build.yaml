@@ -36,6 +36,7 @@ jobs:
       - name: Install dependencies (Linux)
         if: ${{ matrix.name == 'Linux' }}
         run: |
+          apt install sudo
           sudo add-apt-repository ppa:git-core/ppa -y
           sudo add-apt-repository ppa:ubuntu-toolchain-r/test
           sudo apt-get update

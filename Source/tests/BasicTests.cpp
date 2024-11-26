@@ -689,7 +689,7 @@ struct AUvalTest    : public PluginTest
             return;
 
         // Use -stress on strictness levels greater than 5
-        const auto cmd = juce::String ("auval -strict STRESS -v ").replace ("STRESS", ut.getOptions().strictnessLevel > 5 ? "-stress" : "")
+        const auto cmd = juce::String ("auval -strict STRESS -v ").replace ("STRESS", ut.getOptions().strictnessLevel > 5 ? "-stress 20" : "")
                             + desc.fileOrIdentifier.fromLastOccurrenceOf ("/", false, false).replace (",", " ");
 
         juce::ChildProcess cp;
